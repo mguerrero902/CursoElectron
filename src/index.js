@@ -3,6 +3,10 @@
 // Instanciando los objetos app y BrowserWindow
 import { app, BrowserWindow } from "electron";
 import devtools from "./devtools";
+import setMainIpc from "./ipcMainEvents";
+import handleErrors from "./handle-errors";
+
+global.win;
 
 if (process.env.NODE_ENV === "development") {
     devtools();
@@ -16,7 +20,7 @@ app.on("before-quit", () => {
 // Ejecutando ordenes cuando la aplicación este lista
 app.on("ready", () => {
     //Creando una ventana
-    let win = new BrowserWindow({
+    global.win = new BrowserWindow({
         width: 800,
         height: 600,
         title: "Hola Mundo",
@@ -27,22 +31,23 @@ app.on("ready", () => {
             nodeIntegration: true,
         },
     });
+    setMainIpc(global.win);
+    handleErrors(global.win);
 
-    win.once("ready-to-show", () => {
-        win.show();
+    global.win.once("ready-to-show", () => {
+        global.win.show();
     });
 
-    win.on("move", () => {
-        const position = win.getPosition();
+    global.win.on("move", () => {
+        const position = global.win.getPosition();
         console.log(`la posición es ${position}`);
     });
 
     //Detectando el cierre de la ventana para cerrar el aplicativo
-    win.on("closed", () => {
-        win = null;
+    global.win.on("closed", () => {
+        global.win = null;
         app.quit();
     });
 
-    win.loadURL(`file://${__dirname}/renderer/index.html`);
-    win.toggleDevTools();
+    global.win.loadURL(`file://${__dirname}/renderer/index.html`);
 });

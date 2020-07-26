@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/css/photon.min.css" />
     <link rel="stylesheet" href="../assets/css/sytle.css" />
     <script src="lib/filterous2-2.0.0.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="javascript.js" type="text/javascript" charset="utf-8"></script>
+    <script src="main-window/frontend.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -20,41 +20,6 @@
                         <li class="list-group-header">
                             <input id="search-box" class="form-control" type="text" placeholder="Busca un imagen">
                         </li>
-                        <li class="list-group-item selected">
-                            <img class="media-object pull-left" src="../assets/img/1.jpg" height="32">
-                            <div class="media-body">
-                                <strong>1.jpg</strong>
-                                <p>2 MB</p>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <img class="media-object pull-left" src="../assets/img/2.jpg" height="32">
-                            <div class="media-body">
-                                <strong>2.jpg</strong>
-                                <p>2 MB</p>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <img class="media-object pull-left" src="../assets/img/3.jpg" height="32">
-                            <div class="media-body">
-                                <strong>3.jpg</strong>
-                                <p>2 MB</p>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <img class="media-object pull-left" src="../assets/img/4.jpg" height="32">
-                            <div class="media-body">
-                                <strong>4.jpg</strong>
-                                <p>2 MB</p>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <img class="media-object pull-left" src="../assets/img/5.jpg" height="32">
-                            <div class="media-body">
-                                <strong>5.jpg</strong>
-                                <p>2 MB</p>
-                            </div>
-                        </li>
                     </ul>
                 </div>
                 <div class="pane">
@@ -62,12 +27,18 @@
                         <header class="toolbar toolbar-header image-toolbar">
                             <div class="toolbar-actions">
                                 <div class="btn-group">
-                                    <button class="btn btn-default">
+                                    <button id="open-directory" class="btn btn-default">
                                         <span class="icon icon-folder icon-text"></span>
                                         Abrir ubicación
                                     </button>
                                 </div>
-                                <button class="btn btn-default pull-right">
+                                <div class="btn-group">
+                                    <button id="open-preferences" class="btn btn-default">
+                                        <span class="icon icon-cog"></span>
+                                    </button>
+                                </div>
+
+                                <button id="save-button" class="btn btn-default pull-right">
                                     <span class="icon icon-download icon-text"></span>
                                     Guardar
                                 </button>
@@ -119,13 +90,13 @@
                             </div>
                         </header>
                         <div class="image-container">
-                            <img id="image-displayed" src="../assets/img/1.jpg" alt="">
+                            <img id="image-displayed" src="" data-original="" alt=" ">
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="toolbar toolbar-footer">
-                <h1 class="title">Footer</h1>
+            <footer class="toolbar toolbar-footer ">
+                <h1 class="title ">Footer</h1>
             </footer>
         </div>
 </body>
