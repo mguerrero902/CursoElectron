@@ -72,6 +72,10 @@ function clearImages() {
     }
 }
 
+function print() {
+    window.print();
+}
+
 function loadImages(images) {
     const imagesList = document.querySelectorAll("ul.list-group");
     for (let i = 0; i < images.length; i++) {
@@ -95,4 +99,5 @@ module.exports = {
     searchImagesEvent: searchImagesEvent,
     loadImages: loadImages,
     clearImages: clearImages,
+    print: print,
 };

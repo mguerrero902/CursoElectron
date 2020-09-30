@@ -2,7 +2,7 @@ import fs from "fs-extra";
 
 function applyFilter(filter, currentImage) {
     let imgObj = new Image(); // eslint-disable-line
-    imgObj.src = currentImage.src;
+    imgObj.src = currentImage.dataset.original;
 
     filterous
         .importImage(imgObj, {}) // eslint-disable-line
@@ -16,7 +16,7 @@ function saveImage(fileName, callback) {
         fileSrc = fileSrc.replace(/^data:([A-Za-z-+/]+);base64,/, "");
         fs.writeFile(fileName.filePath, fileSrc, "base64", callback);
     } else {
-        fileSrc = fileSrc.replace("file:///", "");
+        fileSrc = fileSrc.replace("plp:///", "");
         fs.copy(fileSrc, fileName.filePath, callback);
     }
 }

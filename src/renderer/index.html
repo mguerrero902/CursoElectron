@@ -12,13 +12,14 @@
 </head>
 
 <body>
+    <div id="overlay" class="hidden"></div>
     <div class="window">
         <div class="window-content">
             <div class="pane-group">
                 <div class="pane pane-sm sidebar">
                     <ul class="list-group">
                         <li class="list-group-header">
-                            <input id="search-box" class="form-control" type="text" placeholder="Busca un imagen">
+                            <input id="search-box" class="form-control" type="text" placeholder="Busca un imagen" />
                         </li>
                     </ul>
                 </div>
@@ -28,77 +29,88 @@
                             <div class="toolbar-actions">
                                 <div class="btn-group">
                                     <button id="open-directory" class="btn btn-default">
-                                        <span class="icon icon-folder icon-text"></span>
-                                        Abrir ubicación
-                                    </button>
+                      <span class="icon icon-folder icon-text"></span>
+                      Abrir ubicación
+                    </button>
                                 </div>
                                 <div class="btn-group">
                                     <button id="open-preferences" class="btn btn-default">
-                                        <span class="icon icon-cog"></span>
-                                    </button>
+                      <span class="icon icon-cog"></span>
+                    </button>
+                                    <button id="print-button" class="btn btn-default">
+                      <span class="icon icon-print"></span>
+                    </button>
+
+                                    <button id="upload-button" class="btn btn-default">
+                      <span class="icon icon-upload-cloud"></span>
+                    </button>
+                                    <button id="paste-button" class="btn btn-default">
+                      <span class="icon icon-clipboard"></span>
+                    </button>
                                 </div>
 
                                 <button id="save-button" class="btn btn-default pull-right">
-                                    <span class="icon icon-download icon-text"></span>
-                                    Guardar
-                                </button>
+                    <span class="icon icon-download icon-text"></span>
+                    Guardar
+                  </button>
 
                                 <select id="filters" class="pull-right">
-                                    <option value="normal" selected>normal</option>
-                                    <option value="1977">1977</option>
-                                    <option value="aden">aden</option>
-                                    <option value="amaro">amaro</option>
-                                    <option value="ashby">ashby</option>
-                                    <option value="brannan">brannan</option>
-                                    <option value="brooklyn">brooklyn</option>
-                                    <option value="charmes">charmes</option>
-                                    <option value="clarendon">clarendon</option>
-                                    <option value="crema">crema</option>
-                                    <option value="dogpatch">dogpatch</option>
-                                    <option value="earlybird">earlybird</option>
-                                    <option value="gingham">gingham</option>
-                                    <option value="ginza">ginza</option>
-                                    <option value="hefe">hefe</option>
-                                    <option value="helena">helena</option>
-                                    <option value="hudson">hudson</option>
-                                    <option value="inkwell">inkwell</option>
-                                    <option value="juno">juno</option>
-                                    <option value="kelvin">kelvin</option>
-                                    <option value="lark">lark</option>
-                                    <option value="lofi">lofi</option>
-                                    <option value="ludwig">ludwig</option>
-                                    <option value="maven">maven</option>
-                                    <option value="mayfair">mayfair</option>
-                                    <option value="moon">moon</option>
-                                    <option value="nashville">nashville</option>
-                                    <option value="perpetua">perpetua</option>
-                                    <option value="reyes">reyes</option>
-                                    <option value="rise">rise</option>
-                                    <option value="sierra">sierra</option>
-                                    <option value="skyline">skyline</option>
-                                    <option value="slumber">slumber</option>
-                                    <option value="stinson">stinson</option>
-                                    <option value="sutro">sutro</option>
-                                    <option value="toaster">toaster</option>
-                                    <option value="valencia">valencia</option>
-                                    <option value="vesper">vesper</option>
-                                    <option value="walden">walden</option>
-                                    <option value="willow">willow</option>
-                                    <option value="xpro2">xpro2</option>
-                                </select>
+                    <option value="normal" selected>normal</option>
+                    <option value="1977">1977</option>
+                    <option value="aden">aden</option>
+                    <option value="amaro">amaro</option>
+                    <option value="ashby">ashby</option>
+                    <option value="brannan">brannan</option>
+                    <option value="brooklyn">brooklyn</option>
+                    <option value="charmes">charmes</option>
+                    <option value="clarendon">clarendon</option>
+                    <option value="crema">crema</option>
+                    <option value="dogpatch">dogpatch</option>
+                    <option value="earlybird">earlybird</option>
+                    <option value="gingham">gingham</option>
+                    <option value="ginza">ginza</option>
+                    <option value="hefe">hefe</option>
+                    <option value="helena">helena</option>
+                    <option value="hudson">hudson</option>
+                    <option value="inkwell">inkwell</option>
+                    <option value="juno">juno</option>
+                    <option value="kelvin">kelvin</option>
+                    <option value="lark">lark</option>
+                    <option value="lofi">lofi</option>
+                    <option value="ludwig">ludwig</option>
+                    <option value="maven">maven</option>
+                    <option value="mayfair">mayfair</option>
+                    <option value="moon">moon</option>
+                    <option value="nashville">nashville</option>
+                    <option value="perpetua">perpetua</option>
+                    <option value="reyes">reyes</option>
+                    <option value="rise">rise</option>
+                    <option value="sierra">sierra</option>
+                    <option value="skyline">skyline</option>
+                    <option value="slumber">slumber</option>
+                    <option value="stinson">stinson</option>
+                    <option value="sutro">sutro</option>
+                    <option value="toaster">toaster</option>
+                    <option value="valencia">valencia</option>
+                    <option value="vesper">vesper</option>
+                    <option value="walden">walden</option>
+                    <option value="willow">willow</option>
+                    <option value="xpro2">xpro2</option>
+                  </select>
                                 <label class="pull-right filter-label">Filtros: </label>
                             </div>
                         </header>
                         <div class="image-container">
-                            <img id="image-displayed" src="" data-original="" alt=" ">
+                            <img id="image-displayed" src="" data-original="" alt=" " />
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="toolbar toolbar-footer ">
-                <h1 class="title ">Footer</h1>
-            </footer>
         </div>
+        <footer class="toolbar toolbar-footer">
+            <h1 id="directory" class="title">Footer</h1>
+        </footer>
+    </div>
 </body>
 
 </html>
